@@ -1,0 +1,39 @@
+{
+  "name": "go-jsbox-http-request-example",
+  "version": "1.0.0",
+  "description": "Javascript sandbox app http request example",
+  "main": "lib/app.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praekelt/go-jsbox-http-request-example.git"
+  },
+  "keywords": [
+    "vumi",
+    "sandbox"
+  ],
+  "author": "Praekelt Foundation",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/praekelt/go-jsbox-http-request-example/issues"
+  },
+  "homepage": "https://github.com/praekelt/go-jsbox-http-request-example#readme",
+  "dependencies": {
+    "vumigo_v02": "~0.2",
+    "q": "~0.9",
+    "lodash": "~2.4.1",
+    "moment": "~2.5.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha-test": "^0.12.7",
+    "jshint": "^2.9.1",
+    "mocha": "^
+  }
+}
