@@ -34,6 +34,6 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-mocha-test": "^0.12.7",
     "jshint": "^2.9.1",
-    "mocha": "^
+    "mocha": "^2.4.5"
   }
 }
