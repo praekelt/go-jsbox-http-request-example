@@ -3,6 +3,7 @@ go.app = function() {
     var App = vumigo.App;
     var MenuState = vumigo.states.MenuState;
     var Choice = vumigo.states.Choice;
+    var ChoiceState = vumigo.states.ChoiceState;
     var EndState = vumigo.states.EndState;
     var FreeText = vumigo.states.FreeText;
     var JsonApi = vumigo.http.api.JsonApi;
@@ -17,35 +18,58 @@ go.app = function() {
     };
 
     self.states.add('states:start', function(name) {
-        return new MenuState(name, {
-            question: "Choose your destiny:",
+        return new ChoiceState(name, {
+            question: $('Pick a route'),
 
             choices: [
-                new Choice('states:put', "Put something"),
-                new Choice('states:post', "Post something"),
-                new Choice('states:error', "Cause an error")]
+                new Choice('red', 'Red Line'),
+                new Choice('blue', 'Blue Line'),
+                new Choice('brown', 'Brown Line'),
+                new Choice('green', 'Green Line'),
+                new Choice('orange', 'Orange Line'),
+                new Choice('purple', 'Purple Line'),
+                new Choice('pink', 'Pink Line'),
+                new Choice('yellow', 'Yellow Line'),
+                new Choice('exit', 'Exit')],
+
+            next: function(choice) {
+                return {
+                    red: 'states:red',
+                    blue: 'states:blue',
+                    brown: 'states:brown',
+                    green: 'states:green',
+                    orange:'states:orange',
+                    purple: 'states:purple',
+                    pink: 'states:pink',
+                    yellow:'states:yellow',
+                    exit:'states:exit'
+
+                }[choice.value];
+            }
         });
     });
 
-    self.states.add('states:put', function(name) {
-        // When the user has responded, we put their response to
-        // httpbin.org. Once httpbin.org has responded, we tell the interaction
-        // machine to go to 'states:done' next. Instead of just giving it the
-        // states name, we also give it additional options: the method that was
-        // performed, and httpbin.org's echo of the content in the response.
-        return new FreeText(name, {
-            question: 'What would you like to put?',
+    self.states.add('states:red', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('howard', $("Howard")),
+                new Choice('danryan', $("95th/Dan Ryan")),
+                new Choice('back', $("Back"))
+            ],
 
             next: function(content) {
                 return self
-                    .http.put('http://httpbin.org/put', {
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'put',
+                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -54,23 +78,27 @@ go.app = function() {
         });
     });
 
-    self.states.add('states:post', function(name) {
-        // Similarly to the put requests above, we send it to httpbin.org, then
-        // tell the interaction machine to go to 'states:done', giving it the
-        // method that was performed and httpbin.org's echo of the content.
-        return new FreeText(name, {
-            question: 'What would you like to post?',
+    self.states.add('states:blue', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('ohare', $("O'Hare")),
+                new Choice('forestpark', $("Forest Park")),
+                new Choice('back', $("Back"))
+            ],
 
             next: function(content) {
                 return self
-                    .http.post('http://httpbin.org/post', {
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=blue', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'post',
+                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -79,39 +107,207 @@ go.app = function() {
         });
     });
 
-    self.states.add('states:done', function(name, opts) {
-        // Here we use the options given in 'states:put' and 'states:post' to
-        // show the appropriate message.
+    self.states.add('states:brown', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('kimball', $("Kimball")),
+                new Choice('loop', $("Loop")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=brn', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:green', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('ashland', $("Ashaland")),
+                new Choice('harlem', $("Harlem")),
+                new Choice('cottage', $("Cottage Grove")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=g', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:orange', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('midway', $("Midway")),
+                new Choice('loop', $("Loop")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=org', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:purple', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('linden', $("Linden")),
+                new Choice('loop', $("Loop")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=p', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:pink', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('loop', $("Loop")),
+                new Choice('cermak', $("54th Cermak")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=pink', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:yellow', function(name) {
+        return new ChoiceState(name, {
+            question: $('Please select your stop'),
+
+            choices: [
+                new Choice('howard', $("Howard")),
+                new Choice('skokie', $("Skokie")),
+                new Choice('back', $("Back"))
+            ],
+
+            next: function(content) {
+                return self
+                    .http.get(
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=y', {
+                        data: {message: content}
+                    })
+                    .then(function(resp) {
+                        return {
+                            name: 'states:done',
+                            creator_opts: {
+                                method: 'get',
+                                echo: resp.data.json.message
+                            }
+                        };
+                    });
+            }
+        });
+    });
+
+    self.states.add('states:exit', function(name) {
         return new EndState(name, {
-            text: [
-                "You just performed a " + opts.method + ".",
-                "It was echoed back: " + opts.echo
-            ].join(' '),
+            text: 'Thanks for using CTA tran tracker.',
             next: 'states:start'
         });
     });
 
-    self.states.add('states:error', function(name) {
-        // When we get a response with a status code that is not in the 200
-        // range, an error is thrown. We use `.catch()` (the promise method to
-        // use for error callbacks) to handle the error instead of `.then()`
-        // (the promise method to use for success callbacks).  The error object
-        // given as a parameter to `.catch()` is an HttpResponseError instance,
-        // so we can access the response off the object as `.response`. Note
-        // that if we wanted to have both success and error callbacks, we could
-        // provide both as arguments to `.then()` instead of using `.catch()`.
-        return self
-            .http.get('http://httpbin.org/status/418')
-            .catch(function(e) {
-                return new EndState(name, {
-                    text: [
-                        "You just performed a request. It got a response",
-                        "with the status code", e.response.code
-                    ].join(' '),
-                    next: 'states:start'
-                });
-            });
-    });
+    // self.add('state_language', function(name) {
+    //     return new ChoiceState(name, {
+    //         question: $("Welcome to CTA train tracker. Please select your language:"),
+    //         choices: [
+    //             new Choice('en', $("English")),
+    //             new Choice('es', $("Spanish")),
+    //             new Choice('de', $("Germany")),
+    //             new Choice('fr', $("French")),
+    //             new Choice('zu', $("Zulu")),
+    //         ],
+    //         next: function(choice) {
+    //             return go.utils
+    //                 .save_language(self.im, self.contact, choice.value)
+    //                 .then(function() {
+    //                     return 'something';
+    //                 });
+    //         }
+    //     });
+    // });
 });
 
     return {
