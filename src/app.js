@@ -1,11 +1,11 @@
 go.app = function() {
     var vumigo = require('vumigo_v02');
     var App = vumigo.App;
-    var MenuState = vumigo.states.MenuState;
+    // var MenuState = vumigo.states.MenuState;
     var Choice = vumigo.states.Choice;
     var ChoiceState = vumigo.states.ChoiceState;
     var EndState = vumigo.states.EndState;
-    var FreeText = vumigo.states.FreeText;
+    // var FreeText = vumigo.states.FreeText;
     var JsonApi = vumigo.http.api.JsonApi;
 
     var HttpApp = App.extend(function(self) {
