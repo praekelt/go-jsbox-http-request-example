@@ -2,79 +2,61 @@
 // we have a deep copy of all the fixtures.
 module.exports = function() {
     return [
-        {
-        "request": {
-            "method": "PUT",
-            "url": "http://httpbin.org/put",
-            "data": {
-                "message": "hello world!"
-            }
-        },
-        "response": {
-            "code": 200,
-            "data": {
-                "form": {},
-                "headers": {
-                    "Accept-Encoding": "gzip, deflate",
-                    "Cookie": "",
-                    "Content-Length": "26",
-                    "Host": "httpbin.org",
-                    "Connection": "close",
-                    "Content-Type": "application/json",
-                    "X-Request-Id": "4cd50631-7b53-4687-8f5f-df24cfd6ff84"
-                },
-                "files": {},
-                "origin": "192.168.0.23",
-                "url": "http://httpbin.org/put",
-                "data": "{\"message\":\"hello world!\"}",
-                "args": {},
-                "json": {
-                    "message": "hello world!"
-                }
-            }
-        }
-    },
-    {
-        "request": {
-            "method": "POST",
-            "url": "http://httpbin.org/post",
-            "data": {
-                "message": "hello world!"
-            }
-        },
-        "response": {
-            "code": 200,
-            "data": {
-                "data": "{\"message\":\"hello world!\"}",
-                "form": {},
-                "origin": "192.168.0.23",
-                "url": "http://httpbin.org/post",
-                "args": {},
-                "files": {},
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Host": "httpbin.org",
-                    "Cookie": "",
-                    "X-Request-Id": "a3b50df8-d3d0-40cb-ab33-bcada3e7d012",
-                    "Content-Length": "26",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Connection": "close"
-                },
-                "json": {
-                    "message": "hello world!"
-                }
-            }
-        }
-    },
     {
         "request": {
           "method": "GET",
-          "url": "http://httpbin.org/status/418"
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red&outputType=JSON"
         },
         "response": {
-          "code": 418,
-          "data": {}
+        "code": 200,
+        "data": {
+                "ctatt":{ 
+                  "tmst":"2015-04-30T20:29:44",
+                  "errCd":"0",
+                  "errNm":null,
+                  "route":[ 
+                        { 
+                            "@name":"red",
+                            "train":[ 
+                                { 
+                                  "rn":"827",
+                                  "destSt":"30173",
+                                  "destNm":"Howard",
+                                  "trDr":"1",
+                                  "nextStaId":"40650",
+                                  "nextStpId":"30125",
+                                  "nextStaNm":"North/Clybourn",
+                                  "prdt":"2015-04-30T20:29:24",
+                                  "arrT":"2015-04-30T20:31:24",
+                                  "isApp":"0",
+                                  "isDly":"0",
+                                  "flags":null,
+                                  "lat":"41.90383",
+                                  "lon":"-87.63685",
+                                  "heading":"269"
+                                },
+                                { 
+                                  "rn":"811",
+                                  "destSt":"30089",
+                                  "destNm":"95th/Dan Ryan",
+                                  "trDr":"2",
+                                  "nextStaId":"41230",
+                                  "nextStpId":"30238",
+                                  "nextStaNm":"47th",
+                                  "prdt":"2016-10-18T15:10:46",
+                                  "arrT":"2016-10-18T15:12:46",
+                                  "isApp":"0",
+                                  "isDly":"0",
+                                  "flags":null,
+                                  "lat":"41.83119",
+                                  "lon":"-87.63064",
+                                  "heading":"178"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
         }
-    }
     ];
 };
