@@ -1,11 +1,9 @@
 go.app = function() {
     var vumigo = require('vumigo_v02');
     var App = vumigo.App;
-    // var MenuState = vumigo.states.MenuState;
     var Choice = vumigo.states.Choice;
     var ChoiceState = vumigo.states.ChoiceState;
     var EndState = vumigo.states.EndState;
-    // var FreeText = vumigo.states.FreeText;
     var JsonApi = vumigo.http.api.JsonApi;
 
     var HttpApp = App.extend(function(self) {
@@ -19,7 +17,7 @@ go.app = function() {
 
     self.states.add('states:start', function(name) {
         return new ChoiceState(name, {
-            question: $('Pick a route'),
+            question: $('Welcome to CTA train tracker.Pick a route: '),
 
             choices: [
                 new Choice('red', 'Red Line'),
@@ -62,14 +60,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -91,14 +88,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=blue', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=blue&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -120,14 +116,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=brn', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=brn&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -150,14 +145,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=g', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=g&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -179,14 +173,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=org', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=org&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -208,14 +201,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=p', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=p&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -237,14 +229,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=pink', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=pink&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -266,14 +257,13 @@ go.app = function() {
             next: function(content) {
                 return self
                     .http.get(
-                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=y', {
+                        'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=y&outputType=JSON', {
                         data: {message: content}
                     })
                     .then(function(resp) {
                         return {
                             name: 'states:done',
                             creator_opts: {
-                                method: 'get',
                                 echo: resp.data.json.message
                             }
                         };
@@ -288,26 +278,6 @@ go.app = function() {
             next: 'states:start'
         });
     });
-
-    // self.add('state_language', function(name) {
-    //     return new ChoiceState(name, {
-    //         question: $("Welcome to CTA train tracker. Please select your language:"),
-    //         choices: [
-    //             new Choice('en', $("English")),
-    //             new Choice('es', $("Spanish")),
-    //             new Choice('de', $("Germany")),
-    //             new Choice('fr', $("French")),
-    //             new Choice('zu', $("Zulu")),
-    //         ],
-    //         next: function(choice) {
-    //             return go.utils
-    //                 .save_language(self.im, self.contact, choice.value)
-    //                 .then(function() {
-    //                     return 'something';
-    //                 });
-    //         }
-    //     });
-    // });
 });
 
     return {
