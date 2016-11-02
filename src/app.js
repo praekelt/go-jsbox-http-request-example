@@ -20,15 +20,15 @@ go.app = function() {
             question: $('Welcome to CTA train tracker.Pick a route: '),
 
             choices: [
-                new Choice('red', 'Red Line'),
-                new Choice('blue', 'Blue Line'),
-                new Choice('brown', 'Brown Line'),
-                new Choice('green', 'Green Line'),
-                new Choice('orange', 'Orange Line'),
-                new Choice('purple', 'Purple Line'),
-                new Choice('pink', 'Pink Line'),
-                new Choice('yellow', 'Yellow Line'),
-                new Choice('exit', 'Exit')]
+                new states('red', 'Red Line'),
+                new states('blue', 'Blue Line'),
+                new states('brown', 'Brown Line'),
+                new states('green', 'Green Line'),
+                new states('orange', 'Orange Line'),
+                new states('purple', 'Purple Line'),
+                new states('pink', 'Pink Line'),
+                new states('yellow', 'Yellow Line'),
+                new states('exit', 'Exit')]
         });
     });
 
