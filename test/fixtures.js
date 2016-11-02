@@ -5,10 +5,10 @@ module.exports = function() {
     {
         "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=red&outputType=JSON",
           "params": {
             "rt": "red",
-            "key": "4ba28f6b2b8843bf9cef1c0fcc05f874",
+            "key": "33305d8dcece4aa58c651c740f88d1e2",
             "outputType": "JSON"
           }
         },
