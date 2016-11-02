@@ -5,7 +5,12 @@ module.exports = function() {
     {
         "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red&outputType=JSON"
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=4ba28f6b2b8843bf9cef1c0fcc05f874&rt=red&outputType=JSON",
+          "params": {
+            "rt": "red",
+            "key": "4ba28f6b2b8843bf9cef1c0fcc05f874",
+            "outputType": "JSON"
+          }
         },
         "response": {
         "code": 200,
@@ -25,15 +30,7 @@ module.exports = function() {
                                   "trDr":"1",
                                   "nextStaId":"40650",
                                   "nextStpId":"30125",
-                                  "nextStaNm":"North/Clybourn",
-                                  "prdt":"2015-04-30T20:29:24",
-                                  "arrT":"2015-04-30T20:31:24",
-                                  "isApp":"0",
-                                  "isDly":"0",
-                                  "flags":null,
-                                  "lat":"41.90383",
-                                  "lon":"-87.63685",
-                                  "heading":"269"
+                                  "nextStaNm":"North/Clybourn"
                                 },
                                 { 
                                   "rn":"811",
@@ -42,15 +39,7 @@ module.exports = function() {
                                   "trDr":"2",
                                   "nextStaId":"41230",
                                   "nextStpId":"30238",
-                                  "nextStaNm":"47th",
-                                  "prdt":"2016-10-18T15:10:46",
-                                  "arrT":"2016-10-18T15:12:46",
-                                  "isApp":"0",
-                                  "isDly":"0",
-                                  "flags":null,
-                                  "lat":"41.83119",
-                                  "lon":"-87.63064",
-                                  "heading":"178"
+                                  "nextStaNm":"47th"
                                 }
                             ]
                         }
