@@ -20,15 +20,15 @@ go.app = function() {
             question: $('Welcome to CTA train tracker.Pick a route: '),
 
             choices: [
-                new states('red', 'Red Line'),
-                new states('blue', 'Blue Line'),
-                new states('brown', 'Brown Line'),
-                new states('green', 'Green Line'),
-                new states('orange', 'Orange Line'),
-                new states('purple', 'Purple Line'),
-                new states('pink', 'Pink Line'),
-                new states('yellow', 'Yellow Line'),
-                new states('exit', 'Exit')]
+                new Choice('states:red', 'Red Line'),
+                new Choice('states:blue', 'Blue Line'),
+                new Choice('states:brown', 'Brown Line'),
+                new Choice('states:green', 'Green Line'),
+                new Choice('states:orange', 'Orange Line'),
+                new Choice('states:purple', 'Purple Line'),
+                new Choice('states:pink', 'Pink Line'),
+                new Choice('states:yellow', 'Yellow Line'),
+                new Choice('states:exit', 'Exit')]
         });
     });
 
@@ -39,8 +39,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -51,8 +50,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -63,8 +61,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -75,8 +72,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -87,8 +83,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -99,8 +94,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -111,8 +105,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
@@ -123,8 +116,7 @@ go.app = function() {
                 data: {message: content}
             })
             .then(function(resp) {
-                return 
-                    self.states.create('states:exit', { echo: resp.data.json.message}):
+                return self.states.create('states:exit', { echo: resp.data.json.message});
             });
     });
 
