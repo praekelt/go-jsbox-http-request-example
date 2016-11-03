@@ -52,9 +52,7 @@ describe("app", function() {
                     .input('1')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'red',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'red', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -81,9 +79,7 @@ describe("app", function() {
                     .input('2')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'blue',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'blue', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -110,9 +106,7 @@ describe("app", function() {
                     .input('3')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'brn',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'brn', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -139,9 +133,7 @@ describe("app", function() {
                     .input('4')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'g',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'g', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -168,9 +160,7 @@ describe("app", function() {
                     .input('5')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'org',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'org', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -197,9 +187,7 @@ describe("app", function() {
                     .input('6')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'p',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'p', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
@@ -226,9 +214,7 @@ describe("app", function() {
                     .input('7')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.params, {rt: 'pink',
-                        							  key: '33305d8dcece4aa58c651c740f88d1e2',
-                        							  outputType: 'JSON'});
+                        assert.deepEqual(req.params, {rt: 'pink', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
