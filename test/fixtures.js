@@ -5,7 +5,7 @@ module.exports = function() {
     {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=red&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "red",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -51,7 +51,7 @@ module.exports = function() {
     {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=blue&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "blue",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -106,7 +106,7 @@ module.exports = function() {
       {
         "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=brn&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "brn",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -152,7 +152,7 @@ module.exports = function() {
       {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=g&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "g",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -207,7 +207,7 @@ module.exports = function() {
     {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=org&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "org",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -253,7 +253,7 @@ module.exports = function() {
     {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=p&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "p",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
@@ -299,7 +299,7 @@ module.exports = function() {
     {
       "request": {
           "method": "GET",
-          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=pink&outputType=JSON",
+          "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?",
           "params": {
             "rt": "pink",
             "key": "33305d8dcece4aa58c651c740f88d1e2",
