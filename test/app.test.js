@@ -38,7 +38,6 @@ describe("app", function() {
                             '5. Orange Line',
                             '6. Purple Line',
                             '7. Pink Line',
-                            // '8. Yellow Line',
                             '8. Exit'
                         ].join('\n')
                     })
@@ -248,35 +247,6 @@ describe("app", function() {
                     .run();
             });
         });
-
-        // describe("when the user is asked to pick a route e.g yellow line", function() {
-        //     it("should select yellow line", function() {
-        //         return tester
-        //             .setup.user.state('states:yellow')
-        //             .input('8')
-        //             .check(function(api) {
-        //                 var req = api.http.requests[0];
-        //                 assert.deepEqual(req.params, {rt: 'y',
-        //                 							  key: '33305d8dcece4aa58c651c740f88d1e2',
-        //                 							  outputType: 'JSON'});
-        //             })
-        //             .run();
-        //     });
-
-        //     it("should tell them the result", function() {
-        //         return tester
-        //             .setup.user.state('states:yellow')
-        //             .input('8')
-        //             .check.interaction({
-        //                 state: 'states:exit',
-        //                 reply: [
-        //                     "Thanks for using CTA tran tracker."
-        //                 ].join(' ')
-        //             })
-        //             .check.reply.ends_session()
-        //             .run();
-        //     });
-        // });
 
         describe("when the user select exit", function() {
             it("should end the session and start the user at the start state next session", function() {

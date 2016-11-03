@@ -341,52 +341,6 @@ module.exports = function() {
                 }
             }
         }
-      },
-    // {
-    //   "request": {
-    //       "method": "GET",
-    //       "url": "http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=y&outputType=JSON",
-    //       "params": {
-    //         "rt": "y",
-    //         "key": "33305d8dcece4aa58c651c740f88d1e2",
-    //         "outputType": "JSON"
-    //       }
-    //   }
-      //   "response": {
-      //   "code": 200,
-      //   "data": {
-      //           "ctatt":{ 
-      //             "tmst":"2016-11-03T08:06:18",
-      //             "errCd":"0",
-      //             "errNm":null,
-      //             "route":[ 
-      //                   { 
-      //                       "@name":"y",
-      //                       "train":[ 
-      //                           { 
-      //                             "rn":"592",
-      //                             "destSt":"30176",
-      //                             "destNm":"Skokie",
-      //                             "trDr":"1",
-      //                             "nextStaId":"41680",
-      //                             "nextStpId":"30297",
-      //                             "nextStaNm":"Oakton-Skokie"
-      //                           },
-      //                           { 
-      //                             "rn":"594",
-      //                             "destSt":"30176",
-      //                             "destNm":"Howard",
-      //                             "trDr":"5",
-      //                             "nextStaId":"40900",
-      //                             "nextStpId":"30176",
-      //                             "nextStaNm":"Howard"
-      //                           }
-      //                       ]
-      //                   }
-      //               ]
-      //           }
-      //       }
-      //   }
-      // } 
+      }
     ];
 };
