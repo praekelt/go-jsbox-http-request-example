@@ -24,7 +24,7 @@ go.app = function() {
 
     self.states.add('states:start', function(name) {
         return new MenuState(name, {
-            question: $('Welcome to CTA train tracker.Pick a route: '),
+            question: 'Welcome to CTA train tracker.Pick a route:',
 
             choices: [
                 new Choice('states:red', 'Red Line'),
@@ -42,88 +42,88 @@ go.app = function() {
     self.states.add('states:red', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Red&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=red&outputType=JSON', {
+                params: {rt: 'red', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:blue', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Blue&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=blue&outputType=JSON', {
+                params: {rt: 'blue', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:brown', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Brn&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=brn&outputType=JSON', {
+                params: {rt: 'brn', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:green', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=G&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=g&outputType=JSON', {
+                params: {rt: 'g', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:orange', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Org&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=org&outputType=JSON', {
+                params: {rt: 'org', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:purple', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=P&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=p&outputType=JSON', {
+                params: {rt: 'p', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:pink', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Pink&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=pink&outputType=JSON', {
+                params: {rt: 'pink', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
     self.states.add('states:yellow', function(name) {
         return self
             .http.get(
-                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=Y&outputType=JSON', {
-                data: {message: content}
+                'http://lapi.transitchicago.com/api/1.0/ttpositions.aspx?key=33305d8dcece4aa58c651c740f88d1e2&rt=y&outputType=JSON', {
+                params: {rt: 'y', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'}
             })
             .then(function(resp) {
-                return self.states.create('states:exit', { echo: resp.data.json.message});
+                return self.states.create('states:exit', { echo: resp.data});
             });
     });
 
