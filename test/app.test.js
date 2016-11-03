@@ -59,7 +59,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:red')
+                    .setup.user.state('states:start')
                     .input('1')
                     .check.interaction({
                         state: 'states:exit',
@@ -86,7 +86,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:blue')
+                    .setup.user.state('states:start')
                     .input('2')
                     .check.interaction({
                         state: 'states:exit',
@@ -113,7 +113,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:brown')
+                    .setup.user.state('states:start')
                     .input('3')
                     .check.interaction({
                         state: 'states:exit',
@@ -140,7 +140,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:green')
+                    .setup.user.state('states:start')
                     .input('4')
                     .check.interaction({
                         state: 'states:exit',
@@ -167,7 +167,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:orange')
+                    .setup.user.state('states:start')
                     .input('5')
                     .check.interaction({
                         state: 'states:exit',
@@ -194,7 +194,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:purple')
+                    .setup.user.state('states:start')
                     .input('6')
                     .check.interaction({
                         state: 'states:exit',
@@ -221,7 +221,7 @@ describe("app", function() {
 
             it("should tell them the result", function() {
                 return tester
-                    .setup.user.state('states:pink')
+                    .setup.user.state('states:start')
                     .input('7')
                     .check.interaction({
                         state: 'states:exit',
