@@ -115,9 +115,12 @@ go.app = function() {
             });
     });
 
-    self.states.add('states:exit', function(name) {
+    self.states.add('states:exit', function(name, opts) {
         return new EndState(name, {
-            text: 'Thanks for using CTA tran tracker.',
+            text: [
+                'Thanks for using CTA tran tracker.',
+                'Search results: ' + opts.echo
+            ].join(' '),
             next: 'states:start'
         });
     });

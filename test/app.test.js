@@ -64,7 +64,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -91,7 +92,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -118,7 +120,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -145,7 +148,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -172,7 +176,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                           "Thanks for using CTA tran tracker.",
+                           "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -199,7 +204,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -226,7 +232,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:exit',
                         reply: [
-                            "Thanks for using CTA tran tracker."
+                            "Thanks for using CTA tran tracker.",
+                            "Search results: [object Object]" //TODO: Display real data
                         ].join(' ')
                     })
                     .check.reply.ends_session()
