@@ -65,7 +65,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 2 trains on the red line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -93,7 +93,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 3 trains on the blue line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -121,7 +121,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 2 trains on the brn line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -149,7 +149,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 3 trains on the g line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -177,7 +177,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                            "Thanks for using CTA tran tracker.",
-                           "Search results: [object Object]" //TODO: Display real data
+                           "There are 2 trains on the org line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -205,7 +205,7 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 2 trains on the p line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -233,21 +233,10 @@ describe("app", function() {
                         state: 'states:exit',
                         reply: [
                             "Thanks for using CTA tran tracker.",
-                            "Search results: [object Object]" //TODO: Display real data
+                            "There are 2 trains on the pink line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
-                    .run();
-            });
-        });
-
-        describe("when the user select exit", function() {
-            it("should end the session and start the user at the start state next session", function() {
-
-                return tester
-                    .setup.user.state('states:exit')
-                    .start()
-                    .check.user.state('states:start')
                     .run();
             });
         });

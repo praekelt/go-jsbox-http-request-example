@@ -7,6 +7,7 @@ go;
 
 go.app = function() {
     var vumigo = require('vumigo_v02');
+    var _ = require("lodash");
     var App = vumigo.App;
     var Choice = vumigo.states.Choice;
     var MenuState = vumigo.states.MenuState;
@@ -116,10 +117,13 @@ go.app = function() {
     });
 
     self.states.add('states:exit', function(name, opts) {
+        var result = _.map(opts.echo.ctatt.route, function(route){
+            return 'There are ' + route.train.length + ' trains on the ' + route['@name'] + ' line.';
+        });
         return new EndState(name, {
             text: [
                 'Thanks for using CTA tran tracker.',
-                'Search results: ' + opts.echo
+                result.join(';')
             ].join(' '),
             next: 'states:start'
         });
