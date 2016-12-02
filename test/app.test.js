@@ -24,93 +24,48 @@ describe("app", function() {
         });
 
         describe("when the user starts a session", function() {
-            it("should ask them to put or post", function() {
+            it("should ask them to pick a route", function() {
                 return tester
                     .start()
                     .check.interaction({
                         state: 'states:start',
                         reply: [
-                            'Choose your destiny:',
-                            '1. Put something',
-                            '2. Post something',
-                            '3. Cause an error'
+                            'Welcome to CTA train tracker.Pick a route:',
+                            '1. Red Line',
+                            '2. Blue Line',
+                            '3. Brown Line',
+                            '4. Green Line',
+                            '5. Orange Line',
+                            '6. Purple Line',
+                            '7. Pink Line',
+                            '8. Exit'
                         ].join('\n')
                     })
                     .run();
             });
-
-            describe("when the user chooses to put", function() {
-                it("should ask them to put something", function() {
-                    return tester
-                        .setup.user.state('states:start')
-                        .input('1')
-                        .check.interaction({
-                            state: 'states:put',
-                            reply: 'What would you like to put?'
-                        })
-                        .run();
-                });
-            });
-
-            describe("when the user chooses to post", function() {
-                it("should ask them to post something", function() {
-                    return tester
-                        .setup.user.state('states:start')
-                        .input('2')
-                        .check.interaction({
-                            state: 'states:post',
-                            reply: 'What would you like to post?'
-                        })
-                        .run();
-                });
-            });
-
-            describe("when the user chooses to cause an error", function() {
-                it("should tell them the result", function() {
-                    return tester
-                        .setup.user.state('states:start')
-                        .input('3')
-                        .check.interaction({
-                            state: 'states:error',
-                            reply: [
-                                "You just performed a request.",
-                                "It got a response with the status code 418"
-                            ].join(' ')
-                        })
-                        .check.reply.ends_session()
-                        .run();
-                });
-            });
         });
 
-        describe("when the user is asked to put something", function() {
-            it("should should put their response", function() {
-                // We want to check that the response was given to httpbin.org,
-                // so we look at the request stored under `api.http.requests`
-                // and check the the request's data equals the content given by
-                // the user.
+        describe("when the user is asked to pick a route e.g red line", function() {
+            it("should select red line", function() {
                 return tester
-                    .setup.user.state('states:put')
-                    .input('hello world!')
+                    .setup.user.state('states:red')
+                    .input('1')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.data, {message: 'hello world!'});
+                        assert.deepEqual(req.params, {rt: 'red', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
 
             it("should tell them the result", function() {
-                // Here, we rely on the corresponding fixture to set the
-                // response we were given. The echoed back 'hello world'
-                // was determined by the fixture's response.
                 return tester
-                    .setup.user.state('states:put')
-                    .input('hello world!')
+                    .setup.user.state('states:start')
+                    .input('1')
                     .check.interaction({
-                        state: 'states:done',
+                        state: 'states:exit',
                         reply: [
-                            "You just performed a put.",
-                            "It was echoed back: hello world!"
+                            "Thanks for using CTA tran tracker.",
+                            "There are 2 trains on the red line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
@@ -118,33 +73,167 @@ describe("app", function() {
             });
         });
 
-        describe("when the user is asked to post something", function() {
-            it("should should post their response", function() {
-                // Similarly to the put test, we check that the message was
-                // given to httpbin.org correctly by inspecting the data of the
-                // requests stored under `api.http.requests`.
+        describe("when the user is asked to pick a route e.g blue line", function() {
+            it("should select blue line", function() {
                 return tester
-                    .setup.user.state('states:post')
-                    .input('hello world!')
+                    .setup.user.state('states:blue')
+                    .input('2')
                     .check(function(api) {
                         var req = api.http.requests[0];
-                        assert.deepEqual(req.data, {message: 'hello world!'});
+                        assert.deepEqual(req.params, {rt: 'blue', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
                     })
                     .run();
             });
 
             it("should tell them the result", function() {
-                // Similarly to the test for put, we rely on the corresponding
-                // fixture to set the response. The echoed back 'hello world'
-                // was determined by the fixture's response.
                 return tester
-                    .setup.user.state('states:post')
-                    .input('hello world!')
+                    .setup.user.state('states:start')
+                    .input('2')
                     .check.interaction({
-                        state: 'states:done',
+                        state: 'states:exit',
                         reply: [
-                            "You just performed a post.",
-                            "It was echoed back: hello world!"
+                            "Thanks for using CTA tran tracker.",
+                            "There are 3 trains on the blue line."
+                        ].join(' ')
+                    })
+                    .check.reply.ends_session()
+                    .run();
+            });
+        });
+
+        describe("when the user is asked to pick a route e.g brown line", function() {
+            it("should select brown line", function() {
+                return tester
+                    .setup.user.state('states:brown')
+                    .input('3')
+                    .check(function(api) {
+                        var req = api.http.requests[0];
+                        assert.deepEqual(req.params, {rt: 'brn', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
+                    })
+                    .run();
+            });
+
+            it("should tell them the result", function() {
+                return tester
+                    .setup.user.state('states:start')
+                    .input('3')
+                    .check.interaction({
+                        state: 'states:exit',
+                        reply: [
+                            "Thanks for using CTA tran tracker.",
+                            "There are 2 trains on the brn line."
+                        ].join(' ')
+                    })
+                    .check.reply.ends_session()
+                    .run();
+            });
+        });
+
+        describe("when the user is asked to pick a route e.g green line", function() {
+            it("should select green line", function() {
+                return tester
+                    .setup.user.state('states:green')
+                    .input('4')
+                    .check(function(api) {
+                        var req = api.http.requests[0];
+                        assert.deepEqual(req.params, {rt: 'g', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
+                    })
+                    .run();
+            });
+
+            it("should tell them the result", function() {
+                return tester
+                    .setup.user.state('states:start')
+                    .input('4')
+                    .check.interaction({
+                        state: 'states:exit',
+                        reply: [
+                            "Thanks for using CTA tran tracker.",
+                            "There are 3 trains on the g line."
+                        ].join(' ')
+                    })
+                    .check.reply.ends_session()
+                    .run();
+            });
+        });
+
+        describe("when the user is asked to pick a route e.g orange line", function() {
+            it("should select orange line", function() {
+                return tester
+                    .setup.user.state('states:orange')
+                    .input('5')
+                    .check(function(api) {
+                        var req = api.http.requests[0];
+                        assert.deepEqual(req.params, {rt: 'org', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
+                    })
+                    .run();
+            });
+
+            it("should tell them the result", function() {
+                return tester
+                    .setup.user.state('states:start')
+                    .input('5')
+                    .check.interaction({
+                        state: 'states:exit',
+                        reply: [
+                           "Thanks for using CTA tran tracker.",
+                           "There are 2 trains on the org line."
+                        ].join(' ')
+                    })
+                    .check.reply.ends_session()
+                    .run();
+            });
+        });
+
+        describe("when the user is asked to pick a route e.g purple line", function() {
+            it("should select purple line", function() {
+                return tester
+                    .setup.user.state('states:purple')
+                    .input('6')
+                    .check(function(api) {
+                        var req = api.http.requests[0];
+                        assert.deepEqual(req.params, {rt: 'p', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
+                    })
+                    .run();
+            });
+
+            it("should tell them the result", function() {
+                return tester
+                    .setup.user.state('states:start')
+                    .input('6')
+                    .check.interaction({
+                        state: 'states:exit',
+                        reply: [
+                            "Thanks for using CTA tran tracker.",
+                            "There are 2 trains on the p line."
+                        ].join(' ')
+                    })
+                    .check.reply.ends_session()
+                    .run();
+            });
+        });
+
+        describe("when the user is asked to pick a route e.g pink line", function() {
+            it("should select pink line", function() {
+                return tester
+                    .setup.user.state('states:pink')
+                    .input('7')
+                    .check(function(api) {
+                        var req = api.http.requests[0];
+                        assert.deepEqual(req.params, {rt: 'pink', key: '33305d8dcece4aa58c651c740f88d1e2', outputType: 'JSON'});
+                    })
+                    .run();
+            });
+
+            it("should tell them the result", function() {
+                return tester
+                    .setup.user.state('states:start')
+                    .input('7')
+                    .check.interaction({
+                        state: 'states:exit',
+                        reply: [
+                            "Thanks for using CTA tran tracker.",
+                            "There are 2 trains on the pink line."
                         ].join(' ')
                     })
                     .check.reply.ends_session()
